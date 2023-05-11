@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
+const bookRouter = require('./routes/books')
 
 app.set('view engine', 'ejs') //view engine to use <%= variable > in the .ejs view
 app.set('views', __dirname + '/views') //add views link
@@ -30,6 +31,7 @@ db.once('open', () => console.log('connected to mongoose'))
 //for routes
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
 
 
 app.listen(process.env.PORT || 3000)
